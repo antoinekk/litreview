@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<head>
+  <title>LITReview</title>
+</head>
+<body>
+    <h1>LITReview</h1>
+    {%  if user.is_authenticated %}
+      <p>Vous êtes connecté en tant que {{ request.user }}</p>
+      {% include 'navbar.html' %}
+    {% endif %}
+    {% block content %}{% endblock content %}
+</body>
+</html>

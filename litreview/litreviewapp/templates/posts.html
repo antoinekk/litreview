@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p id="posts-title">Mes posts</p>
+    <br>
+    {% if posts_list_user %}
+      {% for post in posts_list_user %}
+
+        {% if post.rating %}
+        <div id="review">
+          <div id="review-top">
+            <p> {{ post.user }} a publié une critique - {{ post.time_created }}</p>
+            <p id="title-review">{{ post.headline }} - {{ post.rating }}/5</p>
+            <p>"{{ post.body }}"</p>
+          </div>
+          <div id="review-bottom">
+            <p id="title-ticket">{{ post.ticket.title }}</p>
+            <p>"{{post.ticket.description}}"</p>
+            {% if post.ticket.image %}
+            <img src="{{ post.ticket.image.url }}" alt="{{ post.ticket.title }}" width=150 height=250>
+            {% endif %}
+          </div>
+          <div id="button-review-container">
+          <form action="{% url 'modifyreview' pk=post.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" >Modifier</button>
+          </form>
+          <form action="{% url 'deletereview' pk=post.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" >Supprimer</button>
+          </form>
+          </div>
+        </div><br>
+        {% endif %}
+        {% if post.title %}
+        <div id="ticket">
+          <p>{{ post.time_created }}</p>
+          <p id="title-ticket">{{ post.title }}</p>
+          <p>"{{ post.description }}"</p>
+          {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" width=150 height=250>
+          {% endif %}
+          {% if post in tickets_no_review %}
+          <div id="button-ticket-container">
+          <form action="{% url 'modifyticket' pk=post.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit" >Modifier</button>
+          </form>
+          <form action="{% url 'deleteticket' pk=post.pk %}"  method="post">
+            {% csrf_token %}
+            <button type="submit" >Supprimer</button>
+          </form>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,117 @@
+
+#review {
+  margin-right: 25%;
+  margin-left: 25%;
+  border: solid 1px;
+  border-radius: 10px;
+}
+#review, #review-top, #review-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+#ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  border: solid 1px;
+  border-radius: 10px;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#review-top {
+  margin-left: 10px;
+}
+
+#review-bottom {
+  border: solid 1px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 95%;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+#title-review {
+  font-weight: bold;
+}
+
+#title-ticket {
+  font-weight: bold;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin-right: 20%;
+  gap: 20px;
+}
+
+#button-ticket {
+  margin-top: 10px;
+}
+
+#button-review-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-left: 10px;
+}
+
+#button-ticket-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top : 10px;
+}
+
+#button-feed-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 50px;
+}
+
+#buttonfeed {
+  font-weight: bold;
+}
+
+#posts-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+#users-followed-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#title-followed {
+  font-weight: bold;
+  text-align: center;
+}
+
+#sub {
+  text-align: center;
+}
+
+#follow-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+}

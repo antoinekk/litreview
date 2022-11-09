@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Créer une critique</h2>
+    <form method="post" enctype="multipart/form-data">
+        {{ ticketform.as_p }}
+        {{ reviewform.as_p }}
+        {% csrf_token %}
+        <button type="submit" >Envoyer</button>
+    </form>
+    <button type="submit" onclick="location.href='{% url 'feed' %}'">Retour</button>
+{% endblock content %}

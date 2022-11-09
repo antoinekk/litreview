@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="button-feed-container">
+    <button id="buttonfeed" type="submit" onclick="location.href='{% url 'createticket' %}'" >Demander une critique</button>
+    <button id="buttonfeed" type="submit" onclick="location.href='{% url 'createreview' %}'">Créer une critique</button>
+</div>
+    <br>
+    <br>
+    {% if posts_list %}
+      {% for post in posts_list %}
+        {% if post.title %}
+        <div id="ticket">
+          <p> {{ post.user }} a créé un ticket - {{ post.time_created }}</p>
+          <p id="title-ticket">{{ post.title }}</p>
+          <p>"{{ post.description }}"</p>
+          {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" width=150 height=250>
+          {% endif %}
+          <form action="{% url 'responseticket' pk=post.pk %}" method="post">
+            {% csrf_token %}
+            <button id ="button-ticket" type="submit" >Créer une critique</button>
+          </form>
+        </div><br>
+        {% elif post.rating %}
+        <div id="review">
+          <div id="review-top">
+            <p> {{ post.user }} a publié une critique - {{ post.time_created }}</p>
+            <p id="title-review">{{ post.headline }} - {{ post.rating }}/5</p>
+            <p>"{{post.body}}"</p>
+          </div>
+          <div id="review-bottom">
+            <p id="title-ticket">{{ post.ticket.title }}</p>
+            <p>"{{ post.ticket.description }}"</p>
+            {% if post.ticket.image %}
+            <img src="{{ post.ticket.image.url }}" alt="{{ post.ticket.title }}" width=150 height=250>
+            {% endif %}
+          </div>
+        </div><br>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+  <form id="follow-form" method="post">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <button type="submit" >Envoyer</button>
+  </form>
+  {% if user_followed %}
+    <p id="title-followed">Abonnements</p>
+    {% for user in user_followed %}
+      <form id="sub" action="{% url 'unfollowuser' pk=user.pk %}" method="post">
+        {{ user.followed_user }}
+        {% csrf_token %}
+        <button type="submit" >Se désabonner</button>
+      </form>
+    {% endfor %}
+  {% endif %}
+  {% if followed_by %}
+    <p id="title-followed">Abonnés</p>
+    {% for user in followed_by %}
+      <p id="sub">{{ user.user }}</p>
+    {% endfor %}
+  {% endif %}
+{% endblock content %}

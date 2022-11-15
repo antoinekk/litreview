@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div id="review-form">
 <h2>Modifier la critique</h2>
 {% if ticket %}
   <p id="title-ticket">{{ ticket.title }}<p>
@@ -10,8 +11,9 @@
   <form method="post" enctype="multipart/form-data">
       {{ reviewform.as_p }}
       {% csrf_token %}
+      <button type="submit" onclick="location.href='{% url 'posts' %}'">Retour</button>
       <button type="submit" >Envoyer</button>
   </form>
-  <button type="submit" onclick="location.href='{% url 'posts' %}'">Retour</button>
+</div>
 {% endif %}
 {% endblock content %}

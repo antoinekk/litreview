@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Modifier le ticket</h2>
-  <form method="post" enctype="multipart/form-data">
-      {{ ticketform.as_p }}
-      {% csrf_token %}
-      <button type="submit" >Envoyer</button>
-  </form>
-  <button type="submit" onclick="location.href='{% url 'posts' %}'">Retour</button>
+<div id="ticket-form">
+  <h2>Modifier le ticket</h2>
+    <form method="post" enctype="multipart/form-data">
+        {{ ticketform.as_p }}
+        {% csrf_token %}
+        <button type="submit" onclick="location.href='{% url 'posts' %}'">Retour</button>
+        <button type="submit" >Envoyer</button>
+    </form>
+</div>
 {% endblock content %}

@@ -10,7 +10,7 @@ class LoginForm(forms.Form):
 class SignupForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
-        fields = ('username', 'email')
+        fields = ('username',)
 
 class TicketForm(forms.ModelForm):
     class Meta:

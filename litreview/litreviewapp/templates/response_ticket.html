@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Répondre au ticket</h2>
-  {% if ticket %}
-    <p id="title-ticket">{{ ticket.title }}</p>
-    <p>{{ ticket.description }}</p>
-    {% if ticket.image %}
-    <img src="{{ ticket.image.url }}" alt="{{ ticket.title }}" width=150 height=250>
-    {% endif %}
-    <form method="post" enctype="multipart/form-data">
-        {{ reviewform.as_p }}
-        {% csrf_token %}
-        <button type="submit" >Envoyer</button>
-    </form>
-    <button type="submit" onclick="location.href='{% url 'feed' %}'">Retour</button>
+  <div id="review-form">
+    <h2>Répondre au ticket</h2>
+    {% if ticket %}
+      <p id="title-ticket">{{ ticket.title }}</p>
+      <p>{{ ticket.description }}</p>
+      {% if ticket.image %}
+      <img src="{{ ticket.image.url }}" alt="{{ ticket.title }}" width=150 height=250>
+      {% endif %}
+      <form method="post" enctype="multipart/form-data">
+          {{ reviewform.as_p }}
+          {% csrf_token %}
+          <button type="submit" onclick="location.href='{% url 'feed' %}'">Retour</button>
+          <button type="submit" >Envoyer</button>
+      </form>
+    </div>
   {% endif %}
 {% endblock content %}

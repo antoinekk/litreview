@@ -27,6 +27,18 @@
   padding-bottom: 10px;
 }
 
+#ticket-form, #review-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  border: solid 1px;
+  border-radius: 10px;
+  margin-right: 25%;
+  margin-left: 25%;
+}
+
 #review-top {
   margin-left: 10px;
 }
@@ -108,10 +120,30 @@
   text-align: center;
 }
 
-#follow-form{
+#follow-form {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
   margin-top: 50px;
+}
+
+#login-container, #signup-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  border: solid 1px;
+  border-radius: 10px;
+  margin-right: 25%;
+  margin-left: 25%;
+}
+
+#login, #login-signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

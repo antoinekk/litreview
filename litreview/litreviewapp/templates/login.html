@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>{{ message }}</p>
-    <p id="log">Inscrivez-vous maintenant</p>
-    <button type="submit" onclick="location.href='{% url 'signup' %}'">S'inscrire</button>
+  <div id="login-container">
+    <div id="login-signup">
+      <p id="log">Inscrivez-vous maintenant</p>
+      <button type="submit" onclick="location.href='{% url 'signup' %}'">S'inscrire</button>
+    </div>
+    <div id="login">
     <p id="log">Connectez-vous</p>
-    <form method="post">
+    <form id="connect-form" method="post">
         {{ form.as_p }}
         {% csrf_token %}
         <button type="submit" >Se connecter</button>
     </form>
+    </div>
+  </div>
 {% endblock content %}
